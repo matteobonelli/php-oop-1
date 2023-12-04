@@ -13,8 +13,8 @@
             </div>
             <div class="d-flex justify-content-between ">
                 <div>
-                    <div>
-                        <?= $lang ?>
+                    <div class="flag">
+                        <img src="img/<?= $flag ?>" alt="<?= $lang ?>">
                     </div>
                     <small>
                         <?= $release ?>

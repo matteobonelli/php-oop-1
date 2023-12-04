@@ -53,6 +53,15 @@ class Movie
         return $template;
     }
 
+    public function getFlags()
+    {
+        $acceptedLanguages = ['de', 'es', 'en', 'fr', 'it', 'ja'];
+        if (!in_array($this->original_language, $acceptedLanguages)) {
+            return "question.png";
+        }
+        return $this->original_language . ".png";
+    }
+
 
     public function printCard()
     {
@@ -62,6 +71,7 @@ class Movie
         $image = $this->poster_path;
         $descr = $this->overview;
         $vote = $this->getVote();
+        $flag = $this->getFlags();
         $lang = $this->original_language;
         $release = $this->release_date;
         $printGenre = $this->getGenres();

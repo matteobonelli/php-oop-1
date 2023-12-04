@@ -1,3 +1,11 @@
 .card-text {
     height: 200px;
 }
+
+.flag {
+    width: 30px;
+}
+
+.flag img {
+    width: 100%;
+}
