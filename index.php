@@ -9,10 +9,10 @@ class Movie
     private float $vote_average;
     private string $poster_path;
     private string $release_date;
-    private Genre $genre;
+    private array $genres;
 
 
-    public function __construct($id, $name, $lang, $descr, $vote, $image, $release, $genre)
+    public function __construct($id, $name, $lang, $descr, $vote, $image, $release, $genres)
     {
         $this->id = $id;
         $this->title = $name;
@@ -21,7 +21,7 @@ class Movie
         $this->vote_average = $vote;
         $this->poster_path = $image;
         $this->release_date = $release;
-        $this->genre = $genre;
+        $this->genres = $genres;
     }
 
     public function getVote()
@@ -30,6 +30,16 @@ class Movie
         $template = "<p>";
         for ($i = 0; $i < 5; $i++) {
             $template .= $i <= $vote ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
+        }
+        $template .= "</p>";
+        return $template;
+    }
+
+    public function getGenres()
+    {
+        $template = "<p>";
+        foreach ($this->genres as $genre) {
+            $template .= $genre->genre . "<br>";
         }
         $template .= "</p>";
         return $template;
@@ -46,7 +56,8 @@ class Movie
         $vote = $this->getVote();
         $lang = $this->original_language;
         $release = $this->release_date;
-        $genre = $this->genre->genre;
+        $printGenre = $this->getGenres();
+
         include __DIR__ . '/Views/cards.php';
 
     }
@@ -59,8 +70,7 @@ $movieList = json_decode($getContent, true);
 $moviesDecoded = [];
 
 foreach ($movieList as $movie) {
-    $genre = $genres[0];
-    $moviesDecoded[] = new Movie($movie['id'], $movie['title'], $movie['original_language'], $movie['overview'], $movie['vote_average'], $movie['poster_path'], $movie['release_date'], $genre);
+    $moviesDecoded[] = new Movie($movie['id'], $movie['title'], $movie['original_language'], $movie['overview'], $movie['vote_average'], $movie['poster_path'], $movie['release_date'], $genres);
 }
 
 ?>

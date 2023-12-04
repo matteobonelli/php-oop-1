@@ -9,7 +9,7 @@
                 <?= $descr ?>
             </p>
             <h5>
-                <?= $genre ?>
+                <?= $printGenre ?>
             </h5>
             <div class="d-flex justify-content-between ">
                 <div>
