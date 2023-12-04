@@ -1,5 +1,5 @@
 <div class="col-12 col-md-3 col-lg-3">
-    <div class="card" style="width: 18rem;">
+    <div class="card h-100" style="width: 18rem;">
         <img src="<?= $image ?>" class="card-img-top" alt="<?= $title ?>">
         <div class="card-body">
             <h5 class="card-title">
