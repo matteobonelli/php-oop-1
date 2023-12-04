@@ -37,11 +37,19 @@ class Movie
 
     public function getGenres()
     {
-        $template = "<p>";
-        foreach ($this->genres as $genre) {
+
+        $genreArray = [];
+        while (count($genreArray) < 2) {
+            $randGenre = $this->genres[rand(0, count($this->genres) - 1)];
+            if (!in_array($randGenre, $genreArray)) {
+                array_push($genreArray, $randGenre);
+            }
+        }
+        $template = "<h5>";
+        foreach ($genreArray as $genre) {
             $template .= $genre->genre . "<br>";
         }
-        $template .= "</p>";
+        $template .= "</h5>";
         return $template;
     }
 

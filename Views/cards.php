@@ -8,9 +8,9 @@
             <p class="card-text overflow-y-auto">
                 <?= $descr ?>
             </p>
-            <h5>
+            <div>
                 <?= $printGenre ?>
-            </h5>
+            </div>
             <div class="d-flex justify-content-between ">
                 <div>
                     <div>
